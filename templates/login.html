@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login with Google</h2>
+        <p>Click the button below to login with your Google account:</p>
+        <button onclick="loginWithGoogle()">Login with Google</button>
+    </div>
+
+    <!-- JavaScript for login with Google -->
+    <script>
+        function loginWithGoogle() {
+            // Redirect to the Google authorization URL
+            window.location.href = "/login";
+        }
+    </script>
+</body>
+</html>

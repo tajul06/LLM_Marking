@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Course Dashboard</h1>
+    <h2>{{ course.name }}</h2>
+    <p>Description: {{ course.description }}</p>
+    <p>Start Date: {{ course.start_date }}</p>
+    <p>End Date: {{ course.end_date }}</p>
+    <hr>
+
+    <h3>Create Assessment:</h3>
+    <form action="/create_assessment/{{ course._id }}" method="GET">
+        <button type="submit">Create Assessment</button>
+    </form>
+    <h3>Assessments:</h3>
+    
+
+    <form action="/assessment_list/{{ course._id }}" method="GET">
+        <button type="submit">View Assessment List</button>
+    </form>
+    <hr>
+    <!-- Form for uploading students' Google Sheet -->
+    <h3>Upload Students' Google Sheet:</h3>
+    <form action="/add_student/{{ course._id }}" method="POST">
+        <label for="google_sheets_link">Google Sheets Link:</label>
+        <input type="text" id="google_sheets_link" name="google_sheets_link" required>
+        <button type="submit">Upload Students</button>
+    </form>
+    <hr>
+    <!-- Link to view student list -->
+    <h3>View Students:</h3>
+    <form action="/students/{{ course._id }}" method="GET">
+        <button type="submit">View Students</button>
+    </form>
+    
+    
+</body>
+</html>

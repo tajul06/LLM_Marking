@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students List</title>
+</head>
+<body>
+    <h1>Students List</h1>
+    <h2>Welcome, {{ email }}</h2>
+    <h3>Course: {{ course.name }}</h3>
+    <p>Description: {{ course.description }}</p>
+    <p>Start Date: {{ course.start_date }}</p>
+    <p>End Date: {{ course.end_date }}</p>
+
+    <h3>Students:</h3>
+    <ul>
+        {% for student in students %}
+        <li>{{ student.name }} - {{ student.student_id }} - {{ student.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/course/{{ course._id }}">Back to Course Dashboard</a>
+    <a href="/dashboard">Back to Dashboard</a>
+    <a href="/logout">Logout</a>
+</body>
+</html>

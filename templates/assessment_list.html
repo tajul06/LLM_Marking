@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment List</title>
+</head>
+<body>
+    <h1>Welcome, {{ email }}</h1>
+    <h2>{{ course.name }}, {{ course.section }}</h2>
+    <p>{{ course.description }}</p>
+    <p>Start Date: {{ course.start_date }}</p>
+    <p>End Date: {{ course.end_date }}</p>
+
+    <h3>Assessments</h3>
+
+    <ul>
+        {% for assessment in assessments %}
+            <div>
+                <h4>{{ assessment.assessment_name }}</h4>
+                <form method="POST" action="/upload_rubric/{{ assessment._id }}">
+                    <label for="rubric_link">Rubric Google Sheets Link:</label><br>
+                    <input type="text" id="rubric_link" name="rubric_link" required><br>
+                    <button type="submit">Upload Rubric</button>
+                </form>
+                <form method="POST" action="/publish_assessment/{{ assessment._id }}">
+                    <button type="submit">Publish</button>
+                </form>
+            </div>
+        {% endfor %}
+    </ul>
+
+    <!-- Link back to course dashboard -->
+    <a href="/course/{{ course._id }}">Back to Course Dashboard</a>
+</body>
+</html>
